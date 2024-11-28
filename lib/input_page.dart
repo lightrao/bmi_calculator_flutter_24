@@ -1,4 +1,8 @@
+import 'package:bmi_calculator_flutter_24/reusable_card.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+
+import 'icon_content.dart';
 
 const double bottomContainerHeight = 80;
 const activeCardColor = Colors.blueGrey;
@@ -24,37 +28,45 @@ class _InputPageState extends State<InputPage> {
                   Expanded(
                     child: ReusableCard(
                       colour: activeCardColor,
+                      cardChild: IconContent(
+                        icon: FontAwesomeIcons.mars,
+                        label: "MALE",
+                      ),
                     ),
                   ),
                   Expanded(
                     child: ReusableCard(
                       colour: activeCardColor,
+                      cardChild: IconContent(
+                        icon: FontAwesomeIcons.venus,
+                        label: "FEMALE",
+                      ),
                     ),
                   )
                 ],
               ),
             ),
-            Expanded(
-              child: ReusableCard(
-                colour: activeCardColor,
-              ),
-            ),
-            Expanded(
-              child: Row(
-                children: [
-                  Expanded(
-                    child: ReusableCard(
-                      colour: activeCardColor,
-                    ),
-                  ),
-                  Expanded(
-                    child: ReusableCard(
-                      colour: activeCardColor,
-                    ),
-                  )
-                ],
-              ),
-            ),
+            // Expanded(
+            //   child: ReusableCard(
+            //     colour: activeCardColor,
+            //   ),
+            // ),
+            // Expanded(
+            //   child: Row(
+            //     children: [
+            //       Expanded(
+            //         child: ReusableCard(
+            //           colour: activeCardColor,
+            //         ),
+            //       ),
+            //       Expanded(
+            //         child: ReusableCard(
+            //           colour: activeCardColor,
+            //         ),
+            //       )
+            //     ],
+            //   ),
+            // ),
             Container(
               color: bottomContainerColor,
               margin: EdgeInsets.only(top: 10),
@@ -63,22 +75,5 @@ class _InputPageState extends State<InputPage> {
             ),
           ],
         ));
-  }
-}
-
-class ReusableCard extends StatelessWidget {
-  ReusableCard({super.key, required this.colour});
-
-  final Color colour;
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      margin: EdgeInsets.all(15),
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(10),
-        color: colour,
-      ),
-    );
   }
 }
